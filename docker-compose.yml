@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+
+  db:
+    container_name: postgres
+    build: ./postgres
+    restart: always
+    environment:
+      POSTGRES_DB: auto1
+      POSTGRES_USER: auto1
+      POSTGRES_PASSWORD: auto1
+    ports:
+      - 5432:5432
+
+  app:
+    container_name: demo_app
+    build: ./
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xms3G -Xmx3G -Xlog:gc -verbose:gc -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC"
+    ports:
+      - 8080:8080
+    deploy:
+      resources:
+        limits:
+          memory: "4G"
+        reservations:
+          memory: "3G"

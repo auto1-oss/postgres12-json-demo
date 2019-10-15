@@ -1,0 +1,7 @@
+/jmeter_run/
+/jmeter.log
+
+docker-compose.yml
+runme.sh
+*.iml
+.idea
