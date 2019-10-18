@@ -8,7 +8,7 @@ export WARMUP_REQUESTS_COUNT=100
 export BENCHMARK_REQUESTS_COUNT=20000
 export ORDER_IDS_LOCATION="$PWD/jmeter/orderIds.csv"
 
-docker-compose --compatibility down && docker-compose --compatibility build --build-arg POSTGRES_VERSION=12
+docker-compose --compatibility down && docker-compose --compatibility build --build-arg POSTGRES_VERSION=11
 rm -rf jmeter_run && mkdir jmeter_run && cd jmeter_run || exit
 
 # run the benchmarks
@@ -16,7 +16,7 @@ echo "$(date "+%Y-%m-%d %H:%M:%S") ############# Welcome!"
 echo
 echo
 
-for iteration in 1 2 3
+for iteration in 1 2
 do
   export ENDPOINT_VERSION="v${iteration}"
   echo "$(date "+%Y-%m-%d %H:%M:%S") #### About to run JMeter $ENDPOINT_VERSION endpoint"
