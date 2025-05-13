@@ -1,3 +1,12 @@
+--
+-- This file is part of the auto1-oss/postgres12-json-demo.
+--
+-- (c) AUTO1 Group SE https://www.auto1-group.com
+--
+-- For the full copyright and license information, please view the LICENSE
+-- file that was distributed with this source code.
+--
+
 WITH products("productId", "categoryId", "supplierId", "productName", "discontinued", "quantityPerUnit",
               "unitPrice", "unitsInStock", "unitsOnOrder", "reorderLevel") AS
          (SELECT p.product_id,
